@@ -1,0 +1,222 @@
+
+<html lang="en">
+    <head>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            function showhideclass(id) {
+                var elements = document.getElementsByClassName(id)
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = (elements[i].style.display != 'none') ? 'none' : 'block';
+                }
+            }
+        </script>
+        <style>
+            @media print {
+                .noPrint {
+                    display: none;
+                }
+            }
+            .button {
+                background-color: #5555cc;
+                border: none;
+                color: white;
+                padding: 5px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 18px;
+            }
+        </style>
+
+        <div style="width: 100%;">
+            <div id="mynetwork" style="float:left; width: 75%;"></div>
+                <div style="float:right;width:25%;">
+                <div id="details"  style="padding:10;" class="noPrint">Package info: no package selected</div>
+                <button onclick="javascript:showhideclass('controls')" class="button noPrint">
+                    Show / hide graph controls
+                </button>
+                <div id="controls" class="controls" style="padding:5; display:none"></div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                    {
+                        id: 0,
+                        label: 'ifx_basics/2.0.0',
+                        shape: 'box',
+                        color: { background: 'White'},
+                        fulllabel: '<h3>conanfile.py (ifx_basics/2.0.0)</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: 55049e1c029e5cef829569933abe4a71b0030a67</li>' +
+                                   '    <li><b>homepage</b>: <a href="https://bitbucket.vih.infineon.com/projects/VPM/repos/ifxsystemclib/browse">https://bitbucket.vih.infineon.com/projects/VPM/repos/ifxsystemclib/browse</a></li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 1,
+                        label: 'scb_utils/2.0.0',
+                        shape: 'box',
+                        color: { background: 'OrangeRed'},
+                        fulllabel: '<h3>scb_utils/2.0.0@ifx/vlizer</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: d373a8ac197dbead8a4ae87ffc3830719066b258</li>' +
+                                   '    <li><b>homepage</b>: <a href="https://bitbucket.vih.infineon.com/projects/VPM/repos/ifxsystemclib/browse">https://bitbucket.vih.infineon.com/projects/VPM/repos/ifxsystemclib/browse</a></li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 2,
+                        label: 'boost/1.74.0',
+                        shape: 'box',
+                        color: { background: 'LightGreen'},
+                        fulllabel: '<h3>boost/1.74.0@ifx/inicio</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: c1b51d179b2d686bff24ecf5a45072fa1b9c70da</li>' +
+                                   '    <li><b>url</b>: <a href="https://github.com/conan-io/conan-center-index">https://github.com/conan-io/conan-center-index</a></li>' +
+                                   '    <li><b>homepage</b>: <a href="https://www.boost.org">https://www.boost.org</a></li>' +
+                                   '    <li><b>license</b>: BSL-1.0</li>' +
+                                   '    <li><b>topics</b>: conan, boost, libraries, cpp</li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 3,
+                        label: 'zlib/1.2.11',
+                        shape: 'box',
+                        color: { background: 'LightGreen'},
+                        fulllabel: '<h3>zlib/1.2.11</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: 3fb49604f9c2f729b85ba3115852006824e72cab</li>' +
+                                   '    <li><b>url</b>: <a href="https://github.com/conan-io/conan-center-index">https://github.com/conan-io/conan-center-index</a></li>' +
+                                   '    <li><b>homepage</b>: <a href="https://zlib.net">https://zlib.net</a></li>' +
+                                   '    <li><b>license</b>: Zlib</li>' +
+                                   '    <li><b>topics</b>: zlib, compression</li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 4,
+                        label: 'systemc/2020.06.3.0',
+                        shape: 'box',
+                        color: { background: 'OrangeRed'},
+                        fulllabel: '<h3>systemc/2020.06.3.0@ifx/vlizer</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: 710d32ebb11b60fe88910db70ba0e7766b4f298a</li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 5,
+                        label: 'pugixml/1.10',
+                        shape: 'box',
+                        color: { background: 'LightGreen'},
+                        fulllabel: '<h3>pugixml/1.10@bincrafters/stable</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: 3fb49604f9c2f729b85ba3115852006824e72cab</li>' +
+                                   '    <li><b>url</b>: <a href="https://github.com/bincrafters/conan-pugixml">https://github.com/bincrafters/conan-pugixml</a></li>' +
+                                   '    <li><b>homepage</b>: <a href="https://github.com/zeux/pugixml">https://github.com/zeux/pugixml</a></li>' +
+                                   '    <li><b>license</b>: MIT</li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 6,
+                        label: 'libyaml/0.2.2',
+                        shape: 'box',
+                        color: { background: 'LightGreen'},
+                        fulllabel: '<h3>libyaml/0.2.2@bincrafters/stable</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: 3fb49604f9c2f729b85ba3115852006824e72cab</li>' +
+                                   '    <li><b>url</b>: <a href="https://github.com/bincrafters/conan-libyaml">https://github.com/bincrafters/conan-libyaml</a></li>' +
+                                   '    <li><b>homepage</b>: <a href="https://github.com/yaml/libyaml">https://github.com/yaml/libyaml</a></li>' +
+                                   '    <li><b>license</b>: MIT</li>' +
+                                   '    <li><b>author</b>: Bincrafters &lt;bincrafters@gmail.com&gt;</li>' +
+                                   '    <li><b>topics</b>: conan, libyaml, yaml, parser, emitter</li>' +
+                                   '</ul>'
+                    },
+                    {
+                        id: 7,
+                        label: 'bzip2/1.0.8',
+                        shape: 'box',
+                        color: { background: 'LightGreen'},
+                        fulllabel: '<h3>bzip2/1.0.8</h3>' +
+                                   '<ul>' +
+                                   '    <li><b>id</b>: d16a91eadaaf5829b928b12d2f836ff7680d3df5</li>' +
+                                   '    <li><b>url</b>: <a href="https://github.com/conan-io/conan-center-index">https://github.com/conan-io/conan-center-index</a></li>' +
+                                   '    <li><b>homepage</b>: <a href="http://www.bzip.org">http://www.bzip.org</a></li>' +
+                                   '    <li><b>license</b>: bzip2-1.0.8</li>' +
+                                   '    <li><b>topics</b>: bzip2, data-compressor, file-compression</li>' +
+                                   '</ul>'
+                    }
+            ]);
+            var edges = new vis.DataSet([
+                    { from: 2, to: 3 },
+                    { from: 2, to: 7 },
+                    { from: 0, to: 4 },
+                    { from: 0, to: 2 },
+                    { from: 0, to: 6 },
+                    { from: 0, to: 5 },
+                    { from: 0, to: 1 },
+                    { from: 1, to: 4 },
+                    { from: 1, to: 2 }
+            ]);
+
+            var container = document.getElementById('mynetwork');
+            var controls = document.getElementById('controls');
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                autoResize: true,
+                locale: 'en',
+                edges: {
+                    arrows: { to: {enabled: true} },
+                    smooth: { enabled: false}
+                },
+                nodes: {
+                    font: {'face': 'monospace', 'align': 'left'}
+                },
+                layout: {
+                    "hierarchical": {
+                        "enabled": true,
+                        "sortMethod": "directed",
+                        "direction": "UD",
+                        nodeSpacing: 200
+                    }
+                },
+                physics: {
+                    enabled: false,
+                },
+                configure: {
+                    enabled: true,
+                    filter: 'layout physics',
+                    showButton: false,
+                    container: controls
+                }
+            };
+            var network = new vis.Network(container, data, options);
+            network.on('click', function (properties) {
+                var ids = properties.nodes;
+                var clickedNodes = nodes.get(ids);
+                var control = document.getElementById("details");
+                if(clickedNodes[0]) {
+                    control.innerHTML = clickedNodes[0].fulllabel;
+                }
+                else {
+                    control.innerHTML = "<b>Package info</b>: No package selected";
+                }
+            });
+        </script>
+    </body>
+    <footer>
+        <div class="container-fluid">
+            <div class="info">
+                <p>
+                      Conan <b>v1.43.1</b> <script>document.write(new Date().getFullYear())</script> JFrog LTD. <a>https://conan.io</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</html>
